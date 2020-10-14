@@ -34,6 +34,7 @@ frame_list.sort()
 number_of_pages = int(len(frame_list)/4)
 
 # Make the inital .jpg pages
+print("Generating the pages...")
 for page in range(0, number_of_pages):
     print("Page number " + str(page))
     cmd = "montage -gravity East -geometry '1485x1050>+0+0' tmp/frames/{} tmp/frames/{} tmp/frames/{} tmp/frames/{} tmp/pages/{}.png".format(
@@ -43,6 +44,7 @@ for page in range(0, number_of_pages):
     del frame_list[0:4]
 
 # Overlay the borders to the pages
+print("Applying the borders...")
 for page in range(0, number_of_pages):
     cmd = "composite -gravity center resources/dumboverlay.png tmp/pages/{page}.png tmp/pages/{page}.png".format(
         page = page
@@ -50,9 +52,11 @@ for page in range(0, number_of_pages):
     subprocess.run(cmd, shell=True)
 
 # Output the results in a single pdf
+print("Making the pdf...")
 pdf = FPDF()
 pdf.set_auto_page_break(0)
 for page in range(0, number_of_pages):
     pdf.add_page(orientation = "L")
     pdf.image("tmp/pages/{}.png".format(page), 0, 0, 297, 210)
 pdf.output("./output/flipbook.pdf", "F")
+print("Done! The output is in output/flipbook.pdf. Exiting...")

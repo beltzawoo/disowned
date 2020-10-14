@@ -36,7 +36,6 @@ number_of_pages = int(len(frame_list)/4)
 # Make the inital .jpg pages
 print("Generating the pages...")
 for page in range(0, number_of_pages):
-    print("Page number " + str(page))
     cmd = "montage -gravity East -geometry '1485x1050>+0+0' tmp/frames/{} tmp/frames/{} tmp/frames/{} tmp/frames/{} tmp/pages/{}.png".format(
         frame_list[0], frame_list[1], frame_list[2], frame_list[3], page
     )

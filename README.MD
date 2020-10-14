@@ -17,4 +17,8 @@ Then this is the script *for you!*
 
 ### Ok... but how tf am I even supposed to use it?
 
-it's hard to write documentation for something that doesn't even exist yet lol
+- install fpdf with pip, install imagemagick and ffmpeg with your package managere or something
+- put gif or video in input folder
+- launch script
+- ???
+- profit

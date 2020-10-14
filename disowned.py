@@ -17,7 +17,7 @@ for f in pages:
 
 # Extract the frames with ffmpeg @ 24fps
 input_file = os.listdir("input/")
-cmd = "ffmpeg -i input/{} -r 24 -vf scale=1335:-1 tmp/frames/f%d.png".format(input_file[0])
+cmd = "ffmpeg -i input/{} -r 24 -vf scale=1335:-1 tmp/frames/f%04d.png".format(input_file[0])
 subprocess.run(cmd, shell=True)
 
 frame_list = os.listdir("tmp/frames/")

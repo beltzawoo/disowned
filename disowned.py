@@ -45,7 +45,7 @@ for page in range(0, number_of_pages):
 # Overlay the borders to the pages
 print("Applying the borders...")
 for page in range(0, number_of_pages):
-    cmd = "composite -gravity center resources/dumboverlay.png tmp/pages/{page}.png tmp/pages/{page}.png".format(
+    cmd = "composite -gravity center resources/overlay.png tmp/pages/{page}.png tmp/pages/{page}.png".format(
         page = page
     )
     subprocess.run(cmd, shell=True)
